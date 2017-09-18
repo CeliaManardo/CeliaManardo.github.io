@@ -116,14 +116,14 @@
             keyboardUp(key);
         }, false);
     }
-
+    
+    var source = null;
 
     function playdrum(i) {
-        //
-        //
-        // fill out this funciton
-        //
-        //
+      source = context.createBufferSource();
+	  source.buffer = anybuffer;
+	  source.connect(context.destination);
+	  source.start();
     }
 
     function changegain(i,changedvalue){
