@@ -1,14 +1,18 @@
 function waterDrop() {
- this.color = random(255);
- this.waterDrop = new Particle(random(width), -height, random(4, 15), this.color);
+ colorMode(RGB);
+ this.color = color(bass, mid, treb);
  this.ended = false;
  this.ripples = [];
+ this.rms = analyzer.getLevel(); // Get the average (root mean square) amplitude
+
+ this.waterDrop = new Particle(random(-width, width), -height, random(4,15), this.color);
+
 
   this.update = function() {
     if (!this.ended) {
     	this.waterDrop.applyForce(gravity, this.mass);
     	this.waterDrop.update();
-    	if (this.waterDrop.position.y >= height - random(50, 150)) {
+    	if (this.waterDrop.position.y >= random(100,150)) { //height - random(50, 150)) {
 		this.ended = true;
                 this.end();
     	}	
@@ -37,7 +41,7 @@ function waterDrop() {
 
   this.end = function() {
     for (var i = 0; i < 100; i++) {
- 	var r = new Ripple(this.waterDrop.position.x,  this.waterDrop.position.y, 50, 15, this.waterDrop.color);
+ 	var r = new Ripple(this.waterDrop.position.x,  this.waterDrop.position.y, this.rms, this.rms, this.waterDrop.color);
         this.ripples.push(r);
     }
   }
