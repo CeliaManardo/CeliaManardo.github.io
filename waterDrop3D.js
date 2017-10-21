@@ -1,0 +1,61 @@
+function waterDrop() {
+ this.color = random(255);
+ this.waterDrop = new Particle(random(width), -height, 0, random(4, 15), this.color);
+ this.ended = false;
+ this.ripples = [];
+
+  this.update = function() {
+    if (!this.ended) {
+    	this.waterDrop.applyForce(gravity, this.waterDrop.mass);
+    	this.waterDrop.update();
+    	if (this.waterDrop.position.y >= height - random(50, 150)) {
+		this.ended = true;
+                this.end();
+    	}	
+     }
+
+     for (var i = this.ripples.length - 1; i>=0; i--) {
+        this.ripples[i].show();
+	this.ripples[i].update();
+	while (!this.ripples[i].done()) {
+	  this.ripples[i].update();
+	  if (this.ripples[i].lifespan === 0) {
+		newWidth = this.ripples[i].width + 20;
+		newHeight = this.ripples[i].height + 10;
+		if (this.ripples[i].width < 100 && this.ripples[i].height < 50) {
+			var r2 = new Ripple(this.waterDrop.position.x,  this.waterDrop.position.y, this.waterDrop.position.z, newWidth, newHeight, this.waterDrop.color);
+        		this.ripples.push(r2);
+		}
+	  }
+	}
+
+	if (this.ripples[i].done()) {
+          this.ripples.splice(i, 1);
+        }
+    }
+  }
+
+  this.end = function() {
+    for (var i = 0; i < 100; i++) {
+ 	var r = new Ripple(this.waterDrop.position.x,  this.waterDrop.position.y, this.waterDrop.position.z, 50, 15, this.waterDrop.color);
+        this.ripples.push(r);
+    }
+  }
+  
+  this.show = function() {
+    if (!this.ended) {
+    	this.waterDrop.show();
+    }
+  }
+  
+
+  
+  this.done = function() {
+    if (this.ended && this.ripples.length === 0) {
+      return true;
+    } else {
+      return false;
+    }
+  }
+}
+ 
