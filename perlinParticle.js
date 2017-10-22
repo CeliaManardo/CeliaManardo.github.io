@@ -3,10 +3,12 @@ function PerlinParticle() {
 	this.velocity = createVector(0, 0);
 	this.acceleration = createVector(0, 0);
 	this.maxspeed = 2;
+	colorMode(RGB);
+	this.color = (255, 255, 255);
 	
-	this.prevPos = this.pos.copy();
+	this.prevPos = this.position.copy();
 	
-	this.update = function() {
+	this.update = function(v) {
 		this.velocity.add(this.acceleration);
 		this.velocity.limit(this.maxspeed);
 		this.position.add(this.velocity);
@@ -26,11 +28,13 @@ function PerlinParticle() {
 	}
 	
 	this.show = function() {
-		stroke(0, 5);
+                colorMode(RGB);
+  		stroke(this.color);
 		strokeWeight(1);
 		line (this.position.x, this.position.y, this.prevPos.x, this.prevPos.y);
 		//point(this.position.x, this.position.y);
 		this.updatePrev();
+
 	}
 	
 	this.updatePrev = function() {
@@ -55,4 +59,5 @@ function PerlinParticle() {
 			this.position.y = height;
 			this.updatePrev();
 		}
+	}
 }
