@@ -5,7 +5,7 @@ function waterDrop() {
  this.ripples = [];
  this.rms = analyzer.getLevel(); // Get the average (root mean square) amplitude
 
- this.waterDrop = new Particle(random(-width, width), -height, 5+this.rms*15, this.color);
+ this.waterDrop = new Particle(random(-width, width), -height, 5+this.rms*15, this.color); 
 
 
   this.update = function() {

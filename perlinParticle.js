@@ -5,7 +5,6 @@ function PerlinParticle() {
 	this.maxspeed = 2;
 	colorMode(RGB);
 	this.color = (255, 255, 255);
-	
 	this.prevPos = this.position.copy();
 	
 	this.update = function(v) {
@@ -32,7 +31,8 @@ function PerlinParticle() {
   		stroke(this.color);
 		strokeWeight(1);
 		line (this.position.x, this.position.y, this.prevPos.x, this.prevPos.y);
-		//point(this.position.x, this.position.y);
+
+
 		this.updatePrev();
 
 	}

@@ -19,13 +19,14 @@ var waterDrops = [];
 
 var bass, mid, treb;
 
-// Background Perlin Noise
+// For the background (Perlin Noise)
 var inc = 0.1;
-var scl = 10;
+var scl = 50;
 var cols, rows;
 var zoff =0;
 var perlinParticles = [];
 var flowfield;
+
 
 function preload() {
   song = loadSound('./demo1.mp3');
@@ -54,12 +55,12 @@ function setup() {
   colorMode(RGB);
   backgroundColor = color(0, 0, 0);
 
-	cols = floor(width/ scl);
+	cols = floor(width/scl);
 	rows = floor(height/scl);
 	
 	flowfield = new Array (cols*rows);
 	
-	for (var i = 0;  i < 200; i++) {
+	for (var i = 0;  i < 500; i++) {
 		perlinParticles[i] = new PerlinParticle();
 	}
 
@@ -77,37 +78,23 @@ function draw() {
   bass = fft.getEnergy('bass');
   mid = fft.getEnergy('mid');
   treb = fft.getEnergy('treble');
-
-
-  if (random(1) < 0.3) {
+  
+  if (random(1) < 0.3) {	
 	waterDrops.push(new waterDrop());
   }
   
-  //angleMode(DEGREES);
-  //colorMode(HSB);
-  //fill(random(100, 200), 255, 80);
-  //noStroke();
+  angleMode(DEGREES);
 	var yoff = 0;
 	for (var y = 0; y < rows; y++) {
 		var xoff = 0;
 		for (var x = 0 ; x < cols; x++) {
-			//var index = (x + y*width)*4;
 			var index = x + y*cols;
-			var angle = noise (xoff, yoff, zoff)* TWO_PI *4;
-			//var v = p5.Vector.fromAngle(angle);
-			//v.setMag(0.5);
                         var thisLevel = spectrum[index];
-    			var new_angle = map(thisLevel, 0, 256, 0, angle);
-			var v = p5.Vector.fromAngle(new_angle);
+    			var angle = map(thisLevel, 0, 256, 0, 360);
+			var v = p5.Vector.fromAngle(angle);
 			v.setMag(0.5);
 			flowfield[index] = v;
 			xoff += inc;
-			//push();
-			//translate(x*scl, y*scl);
-			//rotate(v.heading());
-			//strokeWeight(1);
-			//line(0, 0, scl, 0);
-			//pop();
 		}
 		yoff += inc;
 		zoff += 0.0004;
@@ -116,9 +103,7 @@ function draw() {
 		perlinParticles[i].follow(flowfield);
 		perlinParticles[i].update();
                 perlinParticles[i].edges();
-		//beginShape();
 		perlinParticles[i].show();
-		//endShape();
 	}
   translate(width/2, height/2);
   for (var i = waterDrops.length-1; i>=0; i--) {
