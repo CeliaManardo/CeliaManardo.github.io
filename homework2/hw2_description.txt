@@ -1,21 +1,18 @@
-The first idea I had was to simulate rain falling in water. 
+The first idea I had was to simulate rain falling into water. 
 The bigger the drop would have been, the higher the energy.
 
 Inspiration :
-I was looking for p5.js tutorial and I found a YouTube channel "The coding train" 
-which some of his videos were made using p5.js.
-One particular videos was about creating fireworks called " ". I inspired myself to simulate my drop 
-("a particle") falling. Then instead of creating multiple others particles when it explodes
-I created ellipse to simulate the ripple.
-I matched the size of the particle and the size of the ellipse with the rms energy quantity.
-For the color of the particle, 
+I was looking for p5.js tutorial and I found a YouTube channel named "The coding train" (https://www.youtube.com/user/shiffman/videos) which some of his videos were made using p5.js.
+One particular videos was about creating fireworks called "Coding Challenge #27: Fireworks!" (https://www.youtube.com/watch?v=CKeyIbT3vXI). 
+I inspired myself to simulate my waterdrop falling. 
+Then instead of creating multiple others particles when the fireworks explode, I created ellipses to simulate the ripples made when a drop enter water. I matched the size of the particle and the size of the ellipse with the amplitude at this moment ("rms" in the code).
+For the color of the particle, it's the combination of the amount of energy for the "bass" (for the red component of the particle), "mid" (blue component) and "treble" (green component) range of frequency.
 
-For the background, I used the beat detection function found here :
+For the background, I used the beat detection function found here : https://therewasaguy.github.io/p5-music-viz/demos/01d_beat_detect_amplitude/
 Since I wanted a dark background, I ajusted the code to fit my wanting.
-But I was still thinking my background was too empty. My first idea was to visualise 
-as a circle, the fft representation of the sound. But this circle was quite odd and didn't fit 
-well with my water dropping in the foreground.
-Then, I was looking into The coding train's channel and I saw a videos called "Perlin ".
-It was looking more stubtle. Instead of using Perlin noise, I wanted the movement of my
-background particle to follow the fft analysis.
+
+But I was still thinking my background was too empty. My first idea was to visualise as a circle, the different amplitude for each frequency of the sound. But this circle didn't fit well with my water dropping in the foreground. It wasn't matching with the "relax" mood I wanted to create with my sound visualizer.
+Then, I was looking again into The coding train's channel and I saw a videos called "Coding Challenge #24: Perlin Noise Flow Field" (https://www.youtube.com/watch?v=BjoM9oKOAKY).
+It was looking more stubtle for my background than my original idea. 
+But instead of using Perlin noise, I wanted the movement of my background particle to follow the array of amplitude values across the frequency spectrum given by the FFT analysis.
 
