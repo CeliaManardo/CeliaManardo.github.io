@@ -10,9 +10,9 @@ function Particle(x, y, size, color) {
     this.acceleration.add(force/mass);
   }
 
-  this.update = function(vitesse) {
+  this.update = function() {
     this.velocity.add(this.acceleration);
-    this.position.add(this.velocity).add(vitesse);
+    this.position.add(this.velocity);
     this.acceleration.mult(0);
   }
 
