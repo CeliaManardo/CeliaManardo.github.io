@@ -21,7 +21,7 @@ function Particle(x, y, size, color) {
     fill(this.color, 255, 255);
     //strokeWeight(this.size);
     noStroke();
-    ellipse(this.position.x, this.position.y, size, size);
+    ellipse(this.position.x, this.position.y, this.size, this.size);
   }
 
 }
