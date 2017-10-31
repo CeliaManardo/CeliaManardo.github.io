@@ -107,8 +107,7 @@ function draw() {
   }
   translate(width/2, height/2);
   for (var i = waterDrops.length-1; i>=0; i--) {
-       var vitesse = map(spectrum[waterDrops.length-i], 0, 255, 0, 1);
-       waterDrops[i].update(vitesse);
+       waterDrops[i].update();
        waterDrops[i].show();
 
 	if (waterDrops[i].done()) {
