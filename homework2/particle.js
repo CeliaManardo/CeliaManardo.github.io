@@ -2,7 +2,7 @@ function Particle(x, y, size, color) {
   this.position = createVector(x, y);
   this.size = size;
   this.mass = size*1;
-  this.velocity = createVector(0, 4); //random(4, 8)); 
+  this.velocity = createVector(0, random(4, 8)); 
   this.acceleration = createVector(0, 0);
   this.color = color;
 
