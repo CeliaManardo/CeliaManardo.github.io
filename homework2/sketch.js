@@ -29,7 +29,7 @@ var flowfield;
 
 
 function preload() {
-  song = loadSound('./demo1.mp3');
+  song = loadSound('./bts.mp3');
 }
 
 function setup() {
@@ -55,14 +55,14 @@ function setup() {
   colorMode(RGB);
   backgroundColor = color(0, 0, 0);
 
-	cols = floor(width/scl);
-	rows = floor(height/scl);
+  cols = floor(width/scl);
+  rows = floor(height/scl);
 	
-	flowfield = new Array (cols*rows);
+  flowfield = new Array (cols*rows);
 	
-	for (var i = 0;  i < 500; i++) {
-		perlinParticles[i] = new PerlinParticle();
-	}
+  for (var i = 0;  i < 500; i++) {
+	perlinParticles[i] = new PerlinParticle();
+  }
 
 }
 
@@ -84,27 +84,27 @@ function draw() {
   }
   
   angleMode(DEGREES);
-	var yoff = 0;
-	for (var y = 0; y < rows; y++) {
-		var xoff = 0;
-		for (var x = 0 ; x < cols; x++) {
-			var index = x + y*cols;
-                        var thisLevel = spectrum[index];
-    			var angle = map(thisLevel, 0, 256, 0, 360);
-			var v = p5.Vector.fromAngle(angle);
-			v.setMag(0.5);
-			flowfield[index] = v;
-			xoff += inc;
-		}
-		yoff += inc;
-		zoff += 0.0004;
+  var yoff = 0;
+  for (var y = 0; y < rows; y++) {
+	var xoff = 0;
+	for (var x = 0 ; x < cols; x++) {
+		var index = x + y*cols;
+                var thisLevel = spectrum[index];
+    		var angle = map(thisLevel, 0, 256, 0, 360);
+		var v = p5.Vector.fromAngle(angle);
+		v.setMag(0.5);
+		flowfield[index] = v;
+		xoff += inc;
 	}
-	for (var i = 0;  i <perlinParticles.length; i++) {
-		perlinParticles[i].follow(flowfield);
-		perlinParticles[i].update();
-                perlinParticles[i].edges();
-		perlinParticles[i].show();
-	}
+	yoff += inc;
+	zoff += 0.0004;
+  }
+  for (var i = 0;  i <perlinParticles.length; i++) {
+	perlinParticles[i].follow(flowfield);
+ 	perlinParticles[i].update();
+        perlinParticles[i].edges();
+	perlinParticles[i].show();
+  }
   translate(width/2, height/2);
   for (var i = waterDrops.length-1; i>=0; i--) {
        waterDrops[i].update();
