@@ -28,7 +28,7 @@ var Voice = function(context, frequency, amplitude, parameters, effect_node) {
 	//this.filter.connect(context.destination);
 
 	//this.output = this.ampEnv;
-	this.ampEnv.connect(effect_node);
+	this.filter.connect(effect_node);
 
 	// preset parameters 
 	this.lfo.frequency.value = parameters.lfoRate;
@@ -99,23 +99,23 @@ Voice.prototype.triggerFilterEnvelope = function() {
 };
 
 Voice.prototype.off = function() {
-	var param = this.ampEnv.gain;
+	var param1 = this.ampEnv.gain;
+	var param2 = this.filter.frequency;
 	var now = this.context.currentTime;
 
-	param.cancelScheduledValues(now);
-	param.setValueAtTime(param.value, now);
-	param.exponentialRampToValueAtTime(0.001, now + this.ampEnvReleaseTime);
-	this.osc.stop(now + this.ampEnvReleaseTime);
-	this.lfo.stop(now + this.ampEnvReleaseTime);
-
-	var param = this.filter.frequency;
-	var now = this.context.currentTime;
-
-	param.cancelScheduledValues(now);
-	param.setValueAtTime(param.value, now);
-	param.exponentialRampToValueAtTime(0.001, now + this.filterEnvReleaseTime);
-	this.osc.stop(now + this.filterEnvReleaseTime);
-	this.lfo.stop(now + this.filterEnvReleaseTime);
+	if (this.filterEnvReleaseTime > this.ampEnvReleaseTime) {
+		param2.cancelScheduledValues(now);
+		param2.setValueAtTime(param2.value, now);
+		param2.exponentialRampToValueAtTime(0.001, now + this.filterEnvReleaseTime);
+		this.osc.stop(now + this.filterEnvReleaseTime);
+		this.lfo.stop(now + this.filterEnvReleaseTime);
+	} else {
+		param1.cancelScheduledValues(now);
+		param1.setValueAtTime(param1.value, now);
+		param1.exponentialRampToValueAtTime(0.001, now + this.ampEnvReleaseTime);
+		this.osc.stop(now + this.ampEnvReleaseTime);
+		this.lfo.stop(now + this.ampEnvReleaseTime);
+	}
 };
 
 
