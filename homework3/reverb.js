@@ -4,6 +4,7 @@ var Reverb = function(context, parameters) {
 	this.input = context.createGain();
 
 	var convolver = context.createConvolver();
+	var convolverGain = context.createGain();
 	
 	var request = new XMLHttpRequest();
 	request.open('GET', "./music1.mp3", true);
@@ -23,7 +24,6 @@ var Reverb = function(context, parameters) {
 
 	// connect 
 	this.input.connect(this.dryGain);
-	this.input.connect(convolver);
 	convolver.connect(this.wetGain);
 
 	this.dryGain.connect(this.context.destination);

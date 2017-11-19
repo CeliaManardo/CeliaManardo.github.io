@@ -32,7 +32,7 @@ var Voice = function(context, frequency, amplitude, parameters, effect_node) {
 
 	// preset parameters 
 	this.lfo.frequency.value = parameters.lfoRate;
-	this.lfoGain.gain.value = parameters.lfoDepth;
+	this.lfoGain.gain.value = parameters.lfoDepth*Math.pow(2, 1.00/1200.00*parameters.lfoDepth)-1;
 
 	this.osc.frequency.value = frequency;
 
