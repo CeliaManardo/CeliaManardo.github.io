@@ -1,0 +1,234 @@
+<!DOCTYPE html>
+<html>
+<head>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.0/jquery.js"> </script>
+<link href='https://fonts.googleapis.com/css?family=Press Start 2P' rel='stylesheet'>
+<link  href='keyboard.css' rel='stylesheet'>
+<style>
+div.container {
+    width: 100%;
+    border: 1px solid gray;
+}
+
+header, footer {
+    padding: 1em;
+    background-color: black;
+    clear: left;
+    text-align: center;
+	font-family: 'Press Start 2P';font-size: 15px;
+    color: rgba(255,255,0,1);
+    text-shadow: 5px 5px 0 rgba(255,0,0,1) ;
+}
+
+nav {
+    float: left;
+    max-width: 160px;
+    margin: 0;
+    padding: 1em;
+}
+
+nav ul {
+    list-style-type: none;
+    padding: 0;
+}
+   
+nav ul a {
+    text-decoration: none;
+	color: white;
+}
+
+article {
+    margin-left: 170px;
+    padding: 1em;
+    overflow: hidden;
+}
+
+.waveforms{
+	font-family: 'Press Start 2P';font-size: 8px;
+	text-align: center;
+	border-style: double;
+    padding: 1em;
+    color: white;
+    background-color: black;
+}
+
+.play{
+	text-align: center;
+	border-style: double;
+    padding: 1em;
+    color: white;
+    background-color: black;
+}
+
+.eightbit-btn-1 {
+    background: #92CD41;
+    display: inline-block;
+    position: relative;
+    text-align: center;
+    font-size: 8px;
+    padding: 4px;
+    font-family: 'Press Start 2P', cursive;
+    text-decoration: none; 
+    color: white;
+    box-shadow: inset 1px 1px 0px 0px #4AA52E;
+}
+
+.eightbit-btn-2 {
+    background: #F7D51D;
+    display: inline-block;
+    position: relative;
+    text-align: center;
+    font-size: 8px;
+    padding: 2px;
+    font-family: 'Press Start 2P', cursive;
+    text-decoration: none; 
+    color: white;
+    box-shadow: inset 1px 1px 0px 0px #E59400;
+	margin : 2px;
+}
+.eightbit-btn-3 {
+    background: #E76E55;
+    display: inline-block;
+    position: relative;
+    text-align: center;
+    font-size: 8px;
+    padding: 4px;
+    font-family: 'Press Start 2P', cursive;
+    text-decoration: none; 
+    color: white;
+    box-shadow: inset 1px 1px 0px 0px #8C2022;
+}
+#slidecontainer{
+	font-family: 'Press Start 2P';font-size: 8px;
+	text-align: center;
+	border-style: double;
+    padding: 1em;
+    color: white;
+    background-color: black;
+}
+.information{
+	font-family: 'Press Start 2P';font-size: 8px;
+	text-align: center;
+	border-style: double;
+    padding: 1em;
+    color: white;
+    background-color: black;
+}
+</style>
+</head>
+<body>
+
+<div class="container">
+
+<header>
+   <h1> Creating 8 bit Music</h1>
+</header>
+  
+<nav>
+  <ul> <div class="waveforms"> Waveforms </br>
+    <li> <button type="button" class="eightbit-btn-2" id="pulse1"> Pulse </button> </li>
+	<li> <button type="button" class="eightbit-btn-2" id="pulse2"> Square </button> </li>
+    <li> <button type="button" class="eightbit-btn-2" id="triangle"> Triangle </button> </li>
+    <li> <button type="button" class="eightbit-btn-2" id="noise"> Noise </button> </li>
+  </div> </ul>
+  
+  <ul> <div class="play">
+    <li> <button type="button" class="eightbit-btn-1" id="btn_record"> Start recording </button> <br/><br/>
+	<button type="button" class="eightbit-btn-3" id="btn_record_stop"> Stop recording </button> </li>
+  </div> </ul>
+  
+  <ul> <div class="play">
+    <li> <button type="button" class="eightbit-btn-1" id="btn_play"> Play </button> 
+	<button type="button" class="eightbit-btn-3" id="btn_stop"> Stop </button> </li>
+  </div> </ul>
+  
+  <ul> <div id="slidecontainer">
+  Chebyshev <input type="range" min="-100" max="0" value="-50" class="slider" id="chebyshev"> <br/><br/><br/>
+  Freeverb <input type="range" min="-100" max="0" value="-50" class="slider" id="freeverb">
+</div> </ul>
+
+<ul> <div class="information">
+	<a href="info.html" target="_blank"> Need some information </a> 
+</div> </ul>
+  
+</nav>
+
+<article>  
+   <div class="keyboard">
+  <div class="keyboard__row">
+    <kbd class="keyboard__key keyboard__key--81">Q</kbd>
+    <kbd class="keyboard__key keyboard__key--87">W</kbd>
+    <kbd class="keyboard__key keyboard__key--69">E</kbd>
+    <kbd class="keyboard__key keyboard__key--82">R</kbd>
+    <kbd class="keyboard__key keyboard__key--84">T</kbd>
+    <kbd class="keyboard__key keyboard__key--89">Y</kbd>
+    <kbd class="keyboard__key keyboard__key--85">U</kbd>
+    <kbd class="keyboard__key keyboard__key--73">I</kbd>
+    <kbd class="keyboard__key keyboard__key--79">O</kbd>
+    <kbd class="keyboard__key keyboard__key--80">P</kbd>
+    <kbd class="keyboard__key keyboard__key--219">[</kbd>
+    <kbd class="keyboard__key keyboard__key--221">]</kbd>
+  </div>
+  <div class="keyboard__row">
+    <kbd class="keyboard__key keyboard__key--65">A</kbd>
+    <kbd class="keyboard__key keyboard__key--83">S</kbd>
+    <kbd class="keyboard__key keyboard__key--68">D</kbd>
+    <kbd class="keyboard__key keyboard__key--70">F</kbd>
+    <kbd class="keyboard__key keyboard__key--71">G</kbd>
+    <kbd class="keyboard__key keyboard__key--72">H</kbd>
+    <kbd class="keyboard__key keyboard__key--74">J</kbd>
+    <kbd class="keyboard__key keyboard__key--75">K</kbd>
+    <kbd class="keyboard__key keyboard__key--76">L</kbd>
+    <kbd class="keyboard__key keyboard__key--186">;</kbd>
+    <kbd class="keyboard__key keyboard__key--222">'</kbd>
+    <kbd class="keyboard__key"></kbd>
+  </div>
+  <div class="keyboard__row">
+    <kbd class="keyboard__key keyboard__key--90">Z</kbd>
+    <kbd class="keyboard__key keyboard__key--88">X</kbd>
+    <kbd class="keyboard__key keyboard__key--67">C</kbd>
+    <kbd class="keyboard__key keyboard__key--86">V</kbd>
+    <kbd class="keyboard__key keyboard__key--66">B</kbd>
+    <kbd class="keyboard__key keyboard__key--78">N</kbd>
+    <kbd class="keyboard__key keyboard__key--77">M</kbd>
+    <kbd class="keyboard__key keyboard__key--188">,</kbd>
+    <kbd class="keyboard__key keyboard__key--190">.</kbd>
+    <kbd class="keyboard__key keyboard__key--191">/</kbd>
+    <kbd class="keyboard__key"></kbd>
+    <kbd class="keyboard__key"></kbd>
+  </div>
+</div>
+<br/><br/><br/>
+<div id="sketch-holder">
+      <!-- Canvas will go here! -->
+</div>
+
+</article>
+
+<footer>   
+  <ul> Sample songs </br>
+    <button type="button" class="eightbit-btn-2" id="song0" > Zelda </button>
+	<button type="button"class="eightbit-btn-2" id="song1"> Mario </button>
+  </ul>
+</footer>
+
+</div>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/tone/0.9.0/Tone.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/0.5.14/p5.js"></script>
+  <script src="p5.Tone.js"></script>
+  <script src="p5.sound.min.js"></script> 
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjs/3.9.0/math.min.js"></script>
+  <script src="options.js"></script>
+  <script src="zelda/bass1.js"></script>
+  <script src="zelda/bass2.js"></script>
+  <script src="zelda/synth1.js"></script>
+  <script src="zelda/synth2.js"></script>
+  <script src="mario/synth1.js"></script>
+  <script src="mario/synth2.js"></script>
+  <script src="mario/bass1.js"></script>
+  <script src="mario/bass2.js"></script>
+  <script src="songs.js"></script>
+  <script src="app.js"></script>
+  <script src="canvasVisualization.js"></script>
+</body>
+</html>
