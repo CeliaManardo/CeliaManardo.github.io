@@ -4,12 +4,12 @@
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.0/jquery.js"> </script>
 <link href='https://fonts.googleapis.com/css?family=Press Start 2P' rel='stylesheet'>
 <style>
-div.container {
+html {
     width: 100%;
     border: 1px solid gray;
 	color: white;
 	background-color: black;
-	font-family: 'Press Start 2P';font-size: 8px;
+	font-family : "Comic Sans MS", cursive, sans-serif;
 }
 
 header, footer {
@@ -21,32 +21,61 @@ header, footer {
     color: rgba(255,255,0,1);
     text-shadow: 5px 5px 0 rgba(255,0,0,1) ;
 }
+a {
+    text-decoration: none;
+	color: white;
+}
 </style>
 </head>
 <body>
-<div class="container">
 <header>
    <h1> Creating 8 bit Music <br/>
 			Information </h1>
 </header>
  This website was made for you to have fun to recreate 
  famous 8 bit music from retro games but also for you
- to create your own 8 bit music.
- 
- As the center of the page, you can see a keyboard. 
- This keyboard represents your actual keyboard.
- Moreover, each touch of the keyboard is map a musical note.
- For example, taping on the Q key will create the B4 note.
- 
- Furthermore, you can change the waveforms of the synth used.
+ to create your own 8 bit music. <br/>
+ <br/>
+ As the center of the page, you can see a virtual keyboard. <br/>
+ This keyboard represents your actual keyboard.<br/>
+ Moreover, each touch of the keyboard is mapped to a musical note.<br/>
+ For example, tapping on the Q key will create the B4 note.<br/>
+ <br/>
+ Furthermore, thanks to the button in the 1st box on the left of the screen, you can change the waveforms of the oscillator used.<br/>
  In fact, most retro games used pulse, square, triangle and
- noise synth for the music. This is what I tried to recreate here.
- 
- At the bottom at the page, you can click on two buttons to 
- listen to recreation of famous 8 bit games music.
- 
- https://codepen.io/gregh/post/recreating-legendary-8-bit-games-music-with-web-audio-api
- 
-</div> 
+ noise oscillator for their music. This is what I tried to recreate here.<br/>
+ <br/>
+The second box on the left is to control the recording.<br/>
+You can either start the recording or end it.<br/>
+<br/>
+The third box on the left is to control the recording you have just made.<br/>
+You can either play it or stop it.<br/>
+<br/>
+The fourth box is to add effect to your sound. You can add a chebyshev and a reverb effect.<br/>
+In addition, you can add a chebyshev/reverb effect to the oscillator that you want 
+thanks to the 1st box on the left.<br/>
+Clicking on "triangle" waveform, and then by manipulating the slider of reverb effect, 
+you will affect the reverb effect on the triangle oscillator.<br/>
+<br/>
+The last box on the left is to redirect you to this webpage to give some
+information on how to use the website.<br/>
+<br/>
+Under the virtual keyboard, there is a part for the visualization 
+of the sound. Each time, you type on the keyboard, the
+squares will be filled randomly. The color of the filling corresponds to the "waveform" chosen.<br/>
+ <br/>
+ At the bottom of the page, you can click on two buttons (Zelda or Mario) to 
+ listen to famous 8 bit games musics.<br/>
+ These two 8 bit musics were recreating using the same principe
+ I'm using in this website. <br/>
+ This is the website where I took
+ them: <br/> 
+ <a href="https://codepen.io/gregh/post/recreating-legendary-8-bit-games-music-with-web-audio-api" target="_blank"> https://codepen.io/gregh/post/recreating-legendary-8-bit-games-music-with-web-audio-api </a> <br/>
+ I can also mention that while playing the music you can 
+ see the keys being played in the music will light up in the virtual keyboard according to the mapping I have defined between the keys of the keyboard and the musical notes.<br/>
+ By changing the "waveforms" (1st box on the left), you can see
+ the key corresponding respectively to the pulse synth, square and triangle oscillator.<br/>
+ The noise doesn't depend on the musical note played. Thus, randomly, I choose to 
+ light up the Q key on the virtual keyboard.<br/>
 </body>
 </html>

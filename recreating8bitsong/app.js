@@ -382,5 +382,8 @@ button_play.addEventListener('click', function(){
 })
 
 button_stop.addEventListener('click', function(){
-  pulseSynth.stop();
+  pulsePart.stop(0);
+  squarePart.stop(0);
+  trianglePart.stop(0);
+  noisePart.stop(0);
 })

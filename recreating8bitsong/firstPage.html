@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html>
+<head>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.0/jquery.js"> </script>
+<link href='https://fonts.googleapis.com/css?family=Press Start 2P' rel='stylesheet'>
+<style>
+html {
+    width: 100%;
+    border: 1px solid gray;
+	color: white;
+	background-color: black;
+	font-family : sans-serif;
+}
+
+header, footer {
+    padding: 1em;
+    background-color: black;
+    clear: left;
+    text-align: center;
+	font-family: 'Press Start 2P';font-size: 15px;
+    color: rgba(255,255,0,1);
+    text-shadow: 5px 5px 0 rgba(255,0,0,1) ;
+}
+a {
+    text-decoration: none;
+	color: white;
+}
+</style>
+</head>
+<body>
+<header>
+   <h1> Creating 8 bit Music <br/>
+	    Project Explanation </h1>
+</header>
+<ul> <h3> Introduction </h3> </ul>
+This website can either be used to recreate 8 bit sound or either to create your own 8 bit music. <br/>
+I had this idea after visiting the post of Greg Hovanesyan. <br/>
+Here is a link to it: <a href="https://codepen.io/gregh/post/recreating-legendary-8-bit-games-music-with-web-audio-api" target="_blank"> https://codepen.io/gregh/post/recreating-legendary-8-bit-games-music-with-web-audio-api </a> <br/>
+<br/>
+As explained in his post, most of the 8 bit music that we know from retro games, can be recreated using four types of oscillators : pulse, square, triangle and noise. <br/>
+<br/>
+<ul> <h3> Method </h3></ul>
+I used Tone.js to be able to create the four types of oscillators. The user can choose which oscillators he/she wants to select. <br/>
+Then, to actually be able to create music, I decided to map musical notes to keys of the keyboard. This way, by pressing a key on his/her keyboard, the user will create a musical note that will depend on the oscillator selected. <br/>
+Moreover, I wanted to allow the user to create a song using his/her keyboard. That's why, I decided to add a functionality to record the sample he/she made. <br/>
+If the recording is on (ie the user pressed the recording button), each keys stroked will be added in a specific list according to the oscillator selected by the user at the time he/she pressed this key. <br/>
+Then, to play back the recorded sample, I played each of them as Tone.part object.<br/>
+Finally, in order for the user to be able to add effect on the created sound, I used Tone.Freeverb and Tone.Chebyshev to allow two different audio effects.<br/>
+<br/>
+<ul> <h3> Good part</h3> </ul>
+The user can select from four different types of oscillators and thus create a multitude of different 8 bit sound.<br/>
+In addition, the possibility of recording what he/she created, can also make the song's creation easier.<br/>
+Finally, being able to add some audio effects is also an interesting part for the user's creativity regarding the new song he/she made.<br/>
+<br/>
+<ul> <h3> Limitation </h3></ul>
+Nevertheless, there are some limitations. <br/>
+First, the recording of the sample doesn't take into account the duration of the note and the time lapse between two notes. Indeed, the duration of the musical note and the time lapse between two notes are fixed. <br/>
+This can create a big limitation in the creativity of the user. <br/>
+The second main problem is that it's impossible to superpose oscillators. What I mean by that, it's that the user cannot create a sample where the pulse oscillator and noise oscillator hit the musical note B4 at the same time. <br/>
+This could be a problem for recreating famous 8 bit music since the majority of the famous 8 bit song have multiple musical notes played at the same time.<br/>
+<br/>
+<ul> <h3> Technical difficulties </h3></ul>
+The major technical difficulty was the recording part, and especially the fact that the user can change the oscillator while the recording is still on. <br/>
+I had a hard time understanding how Tone.transport works and how to apply it for doing what I wanted. <br/>
+Another difficulty was to make the sound effect working for the different oscillators. At the end I used ".receive" and ".send" methods. <br/>
+To sum up, I think the major issue was the fact the user was able to use four different oscillators and change it at any time. <br/>
+<br/>
+<ul> <h3> Improvements </h3></ul>
+I think a possible improvement could be in the sound visualization. In fact, I didn't have the time to exactly make what I wanted. <br/>
+I think the current visualization is in the retro theme of the website, but I wanted to make something looking a little more like a game. <br/>
+<br/><br/>
+<ul><h3>  Useful links </h3></ul>
+<a href="info.html"> Information on how to use the website </a> <br/>
+<br/>
+<a href="index.html"> Let's try it now </a> <br/>
+<br/>
+<ul> <h3> References </h3></ul>
+<a href="https://codepen.io/gregh/post/recreating-legendary-8-bit-games-music-with-web-audio-api" target="_blank"> https://codepen.io/gregh/post/recreating-legendary-8-bit-games-music-with-web-audio-api </a> <br/>
+<a href="https://codepen.io/desandro/pen/xZmROR" target="_blank"> https://codepen.io/desandro/pen/xZmROR </a> <br/>
+<a href="https://p5js.org/examples/simulate-game-of-life.html" target="_blank"> https://p5js.org/examples/simulate-game-of-life.html </a> <br/>
+</body>
+</html>
